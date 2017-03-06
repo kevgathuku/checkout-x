@@ -7,9 +7,9 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -63,48 +63,45 @@
         </li>
       </ul>
 
-      <a href="#" class="button">Checkout</a>
+      <a href="#" class="btn btn-success">Checkout</a>
     </div>
     <!--end shopping-cart -->
 
     <div class="products-for-sale">
-
-      <div class="featured-products">
-        Featured Products
-      </div>
-
-      <div class="product-details">
-        <div class="product-image">
-          <img src="images/thumb.jpg" width="300" height="300" />
+      <div class="row">
+        <div class="col">
+          <div class="card" style="width: 20rem;">
+            <img class="card-img-top" src="https://dummyimage.com/318x180/000/ff00cc.png" alt="Product X">
+            <div class="card-block">
+              <h4 class="card-title">Sneakers</h4>
+              <p class="card-text">
+                Updated Classic Look Allows You to Dress Up or Casual Under Jeans
+              </p>
+              <p class="card-text product-price">$45.56</p>
+              <a href="#" class="btn btn-info" id="add-to-cart">
+                Add to Cart
+              </a>
+            </div>
+          </div>
         </div>
 
-        <div class="description">
-          <span class="name">Sneakers</span>
-          <span id="price">Ksh. 3400 </span>
-        </div>
-      </div>
-
-      <div class="product-details">
-        <div class="product-image">
-          <img src="images/thumb.jpg" width="300" height="300" />
-        </div>
-
-        <div class="description">
-          <span class="name">Glasses</span>
-          <span id="price">Ksh. 8300 </span>
-        </div>
-      </div>
-
-      <div class="product-details">
-        <div class="product-image">
-          <img src="images/thumb.jpg" width="300" height="300" />
-        </div>
-
-        <div class="description">
-          <span class="name">MacBook</span>
-          <span id="price">Ksh. 152,000 </span>
+        <div class="col">
+          <div class="card" style="width: 20rem;">
+            <img class="card-img-top" src="https://dummyimage.com/318x180/000/ff00cc.png" alt="Product X">
+            <div class="card-block">
+              <h4 class="card-title">Watch</h4>
+              <p class="card-text">
+                Classic Sport Watch with Black Band and 10-Year Battery life
+              </p>
+              <p class="card-text product-price">$12.99</p>
+              <a href="#" class="btn btn-info" id="add-to-cart">
+                Add to Cart
+              </a>
+            </div>
+          </div>
         </div>
       </div>
+
     </div>
     <!--end featured products -->
 
