@@ -27,11 +27,24 @@ String.prototype.fromCurrency = function() {
       this.$shoppingItem = this.$element.find('.card');
       this.$cartIcon = this.$element.find('#cart');
       this.$shoppingCart = this.$element.find('.shopping-cart');
+      this.$shoppingCartItems = this.$element.find('.shopping-cart-items');
+      this.$shoppingCartItemPrices = this.$shoppingCartItems.find('.item-price');
 
       this.currencyString = '$';
 
+      this.calculateInitialTotal();
       this.enableCartToggle();
       this.enableAddToCart();
+    },
+
+    calculateInitialTotal: function() {
+      var $self = this;
+      let total = 0;
+      this.$shoppingCartItemPrices.each(function(index, element) {
+        var price = $self._extractPrice($(element));
+        total += price;
+      });
+      this.$total.text(this._formatCurrency(this.currencyString, total));
     },
 
     // Event handler functions
@@ -81,7 +94,6 @@ String.prototype.fromCurrency = function() {
 
   $(function() {
     var shop = new $.Shop('#shopping-cart-app'); // object's instance
-    console.log(shop.$cartIcon);
   });
 
 })(jQuery);
