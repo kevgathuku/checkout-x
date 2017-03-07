@@ -123,3 +123,7 @@ nav ul li a:hover {
   display: table;
   clear: both;
 }
+
+.card{
+  width: 20rem;
+}

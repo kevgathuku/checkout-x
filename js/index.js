@@ -15,12 +15,15 @@ const parsePriceFromText = function(text) {
   return text.split('$')[1].fromCurrency();
 };
 
-const formatCurrency = function(price) {
+const formatCurrency = function(currency, price) {
   // In JS this is perfectly valid!
   price = price + '';
-  return '$' + price.toCurrency();
+  return currency + price.toCurrency();
 };
 
+// Example of a Closure.
+// Runs the function immediately the document loads
+// Variables defined inside here are not visible outside the closure
 (function() {
 
   let totalText = $('.shopping-cart-total > .main-color-text').text();
@@ -31,14 +34,15 @@ const formatCurrency = function(price) {
   });
 
   $(".card").on("click", "#add-to-cart", function(event) {
-    // Extract the price of the clicked product
-    let priceText = $(this).siblings('.product-price').text();
+    // Extract the price of the clicked product from the data attributes
+    let data = $(this).closest(".card").data();
+    let price = data.price;
+
     // Add the price to the total
-    let itemPrice = parsePriceFromText(priceText);
-    let newTotal = formatCurrency(totalValue + itemPrice);
+    let newTotal = formatCurrency('$', totalValue + price);
 
     // Update the price in the DOM
-     $('.shopping-cart-total > .main-color-text').text(newTotal);
+    $('.shopping-cart-total > .main-color-text').text(newTotal);
   });
 
 })();
