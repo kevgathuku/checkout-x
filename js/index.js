@@ -29,13 +29,9 @@ const formatCurrency = function(currency, price) {
   let totalText = $('.shopping-cart-total > .main-color-text').text();
   let totalValue = parsePriceFromText(totalText);
 
-  $("#cart").on("click", function() {
-    $(".shopping-cart").fadeToggle("fast");
-  });
-
-  $(".card").on("click", "#add-to-cart", function(event) {
+  $('.card').on('click', '#add-to-cart', function(event) {
     // Extract the price of the clicked product from the data attributes
-    let data = $(this).closest(".card").data();
+    let data = $(this).closest('.card').data();
     let price = data.price;
 
     // Add the price to the total
@@ -46,3 +42,42 @@ const formatCurrency = function(currency, price) {
   });
 
 })();
+
+(function($) {
+  $.Shop = function(element) {
+    this.$element = $(element); // top-level element
+    this.init();
+  };
+
+  $.Shop.prototype = {
+    init: function() {
+      // initializes properties and methods
+      this.$total = this.$element.find('#shopping-total');
+      this.$shoppingItem = this.$element.find('.card');
+      this.$addToCart = this.$shoppingItem.find('#add-to-cart');
+      this.$cartIcon = this.$element.find('#cart');
+      this.$shoppingCart = this.$element.find('.shopping-cart');
+
+      this.currencyString = '$';
+
+      this.enableCartToggle();
+    },
+
+    addToCart: function() {
+
+    },
+
+    enableCartToggle: function() {
+      var $self = this;
+      this.$cartIcon.on('click', function() {
+        $self.$shoppingCart.fadeToggle('fast');
+      });
+    }
+  };
+
+  $(function() {
+    var shop = new $.Shop('#shopping-cart-app'); // object's instance
+    console.log(shop.$cartIcon);
+  });
+
+})(jQuery);

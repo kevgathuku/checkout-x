@@ -13,6 +13,7 @@
 </head>
 
 <body>
+  <div id="shopping-cart-app">
   <nav>
     <div class="container">
       <ul class="navbar-left">
@@ -30,83 +31,84 @@
 
 
   <div class="container">
-    <div class="shopping-cart">
-      <div class="shopping-cart-header">
-        <i class="fa fa-shopping-cart cart-icon"></i><span class="badge">3</span>
-        <div class="shopping-cart-total">
-          <span class="lighter-text">Total:</span>
-          <span class="main-color-text">$2,229.97</span>
+      <div class="shopping-cart">
+        <div class="shopping-cart-header">
+          <i class="fa fa-shopping-cart cart-icon"></i><span class="badge">3</span>
+          <div class="shopping-cart-total">
+            <span class="lighter-text">Total:</span>
+            <span class="main-color-text" id="shopping-total">$2,229.97</span>
+          </div>
         </div>
+        <!--end shopping-cart-header -->
+
+        <ul class="shopping-cart-items">
+          <li class="clearfix">
+            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/cart-item1.jpg" alt="item1" />
+            <span class="item-name">Sony DSC-RX100M III</span>
+            <span class="item-price">$849.99</span>
+            <span class="item-quantity">Quantity: 01</span>
+          </li>
+
+          <li class="clearfix">
+            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/cart-item2.jpg" alt="item1" />
+            <span class="item-name">KS Automatic Mechanic...</span>
+            <span class="item-price">$1,249.99</span>
+            <span class="item-quantity">Quantity: 01</span>
+          </li>
+
+          <li class="clearfix">
+            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/cart-item3.jpg" alt="item1" />
+            <span class="item-name">Kindle, 6" Glare-Free To...</span>
+            <span class="item-price">$129.99</span>
+            <span class="item-quantity">Quantity: 01</span>
+          </li>
+        </ul>
+
+        <a href="#" class="btn btn-success">Checkout</a>
       </div>
-      <!--end shopping-cart-header -->
+      <!--end shopping-cart -->
 
-      <ul class="shopping-cart-items">
-        <li class="clearfix">
-          <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/cart-item1.jpg" alt="item1" />
-          <span class="item-name">Sony DSC-RX100M III</span>
-          <span class="item-price">$849.99</span>
-          <span class="item-quantity">Quantity: 01</span>
-        </li>
+      <div class="products-for-sale">
+        <div class="row">
+          <div class="col">
+            <div class="card" data-name="Sneakers" data-price="45.56">
+              <img class="card-img-top" src="https://dummyimage.com/318x180/000/ff00cc.png" alt="Product X">
+              <div class="card-block">
+                <h4 class="card-title">Sneakers</h4>
+                <p class="card-text">
+                  Updated Classic Look Allows You to Dress Up or Casual Under Jeans
+                </p>
+                <p class="card-text product-price">$45.56</p>
+                <a href="#" class="btn btn-info" id="add-to-cart">
+                  Add to Cart
+                </a>
+              </div>
+            </div>
+          </div>
 
-        <li class="clearfix">
-          <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/cart-item2.jpg" alt="item1" />
-          <span class="item-name">KS Automatic Mechanic...</span>
-          <span class="item-price">$1,249.99</span>
-          <span class="item-quantity">Quantity: 01</span>
-        </li>
-
-        <li class="clearfix">
-          <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/cart-item3.jpg" alt="item1" />
-          <span class="item-name">Kindle, 6" Glare-Free To...</span>
-          <span class="item-price">$129.99</span>
-          <span class="item-quantity">Quantity: 01</span>
-        </li>
-      </ul>
-
-      <a href="#" class="btn btn-success">Checkout</a>
-    </div>
-    <!--end shopping-cart -->
-
-    <div class="products-for-sale">
-      <div class="row">
-        <div class="col">
-          <div class="card" data-name="Sneakers" data-price="45.56">
-            <img class="card-img-top" src="https://dummyimage.com/318x180/000/ff00cc.png" alt="Product X">
-            <div class="card-block">
-              <h4 class="card-title">Sneakers</h4>
-              <p class="card-text">
-                Updated Classic Look Allows You to Dress Up or Casual Under Jeans
-              </p>
-              <p class="card-text product-price">$45.56</p>
-              <a href="#" class="btn btn-info" id="add-to-cart">
-                Add to Cart
-              </a>
+          <div class="col">
+            <div class="card" data-name="Watch" data-price="12.99">
+              <img class="card-img-top" src="https://dummyimage.com/318x180/000/ff00cc.png" alt="Product X">
+              <div class="card-block">
+                <h4 class="card-title">Watch</h4>
+                <p class="card-text">
+                  Classic Sport Watch with Black Band and 10-Year Battery life
+                </p>
+                <p class="card-text product-price">$12.99</p>
+                <a href="#" class="btn btn-info" id="add-to-cart">
+                  Add to Cart
+                </a>
+              </div>
             </div>
           </div>
         </div>
 
-        <div class="col">
-          <div class="card" data-name="Watch" data-price="12.99">
-            <img class="card-img-top" src="https://dummyimage.com/318x180/000/ff00cc.png" alt="Product X">
-            <div class="card-block">
-              <h4 class="card-title">Watch</h4>
-              <p class="card-text">
-                Classic Sport Watch with Black Band and 10-Year Battery life
-              </p>
-              <p class="card-text product-price">$12.99</p>
-              <a href="#" class="btn btn-info" id="add-to-cart">
-                Add to Cart
-              </a>
-            </div>
-          </div>
-        </div>
       </div>
-
+      <!--end featured products -->
     </div>
-    <!--end featured products -->
+    <!--end container -->
 
   </div>
-  <!--end container -->
   <script src="js/index.js"></script>
 
 </body>
