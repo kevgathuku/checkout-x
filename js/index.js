@@ -11,38 +11,9 @@ String.prototype.fromCurrency = function() {
   return parseFloat(this.replace(/\,/g, ''));
 };
 
-const parsePriceFromText = function(text) {
-  return text.split('$')[1].fromCurrency();
-};
-
-const formatCurrency = function(currency, price) {
-  // In JS this is perfectly valid!
-  price = price + '';
-  return currency + price.toCurrency();
-};
-
 // Example of a Closure.
 // Runs the function immediately the document loads
 // Variables defined inside here are not visible outside the closure
-(function() {
-
-  let totalText = $('.shopping-cart-total > .main-color-text').text();
-  let totalValue = parsePriceFromText(totalText);
-
-  $('.card').on('click', '#add-to-cart', function(event) {
-    // Extract the price of the clicked product from the data attributes
-    let data = $(this).closest('.card').data();
-    let price = data.price;
-
-    // Add the price to the total
-    let newTotal = formatCurrency('$', totalValue + price);
-
-    // Update the price in the DOM
-    $('.shopping-cart-total > .main-color-text').text(newTotal);
-  });
-
-})();
-
 (function($) {
   $.Shop = function(element) {
     this.$element = $(element); // top-level element
@@ -54,17 +25,33 @@ const formatCurrency = function(currency, price) {
       // initializes properties and methods
       this.$total = this.$element.find('#shopping-total');
       this.$shoppingItem = this.$element.find('.card');
-      this.$addToCart = this.$shoppingItem.find('#add-to-cart');
       this.$cartIcon = this.$element.find('#cart');
       this.$shoppingCart = this.$element.find('.shopping-cart');
 
       this.currencyString = '$';
 
       this.enableCartToggle();
+      this.enableAddToCart();
     },
 
-    addToCart: function() {
+    // Event handler functions
 
+    enableAddToCart: function() {
+      var $self = this;
+      // Get the initial total value
+      let initialTotal = this._extractPrice(this.$total);
+
+      this.$shoppingItem.on('click', '#add-to-cart', function() {
+        // Extract the price of the clicked product from the data attributes
+        let data = $(this).closest('.card').data();
+        let newTotal = parseFloat(data.price) + initialTotal;
+
+        // Add the price to the total
+        let totalText = $self._formatCurrency($self.currencyString, newTotal);
+
+        // Update the price in the DOM
+        $('#shopping-total').text(totalText);
+      });
     },
 
     enableCartToggle: function() {
@@ -72,7 +59,24 @@ const formatCurrency = function(currency, price) {
       this.$cartIcon.on('click', function() {
         $self.$shoppingCart.fadeToggle('fast');
       });
-    }
+    },
+
+    // Private methods
+    // By convention, these are underscored
+
+    _extractPrice: function(element) {
+			var $self = this;
+			var text = element.text();
+			var price = text.replace($self.currencyString, '').replace(' ', '');
+			return price.fromCurrency();
+		},
+
+    _formatCurrency: function(currency, price) {
+      // Convert the integer to a string
+      // In JS this is perfectly valid!
+      price = price + '';
+      return currency + price.toCurrency();
+    },
   };
 
   $(function() {
